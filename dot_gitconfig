@@ -1,0 +1,36 @@
+[user]
+	name = Matteo Joliveau
+	email = matteo.joliveau@mikamai.com
+	signinkey = 7D2F637FECE96DE3A1A31674A97157D4A5822E96
+[alias]
+	co = checkout
+	br = branch
+	ci = commit -s
+	cim = commit -s -m
+	cin = commit -s -n
+	st = status
+	aa = add .
+	a = add
+	pl = pull
+	l = log --graph --name-status
+    ps = push
+    psu = push -u origin HEAD
+	me = merge
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true
+	template = ~/.gitmessage
+[gpg]
+	program = gpg
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
