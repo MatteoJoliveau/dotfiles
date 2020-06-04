@@ -1,23 +1,17 @@
-eval (starship init fish)
-source ~/.asdf/asdf.fish
-eval (sdkman export fish)
-# source ~/.config/fish/gpg-agent.fish
-# source ~/.cargo/env
-
 set -x GPG_TTY (tty)
 set -x _JAVA_AWT_WM_NONREPARENTING 1
 set -x QT_QPA_PLATFORM "xcb"
 set -x QT_WAYLAND_DISABLE_WINDOWDECORATION 1
 set -x EDITOR vim
 set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
 set -x BROWSER firefox-developer-edition
-set -x GOPRIVATE gitlab.com/venini42,github.com/matteojoliveau/monogo-poc
 set -x CC /bin/clang
 set -x CXX /bin/clang++
-set -x fish_user_paths (yarn global bin) $HOME/.pub-cache/bin $HOME/.cargo/bin 
+set -x fish_user_paths (yarn global bin) $HOME/.pub-cache/bin $HOME/.cargo/bin $GOBIN
 set -x ERL_AFLAGS "-kernel shell_history enabled"
-set -x DRONE_SERVER https://ci.k8s-dev.life-tech.xyz
-set -x DRONE_TOKEN eUlY1kerUsi2stoPFycwKn2uqioTuq2r
+set -x DRONE_SERVER {{ .drone_server | quote }}
+set -x DRONE_TOKEN {{ .drone_token | quote }}
 
 alias hk="heroku"
 alias tf="terraform"
@@ -53,11 +47,14 @@ alias cm="chezmoi"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/serverless.fish ]; and . /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/serverless.fish
+[ -f {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/serverless.fish ]; and . {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/serverless.fish
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/sls.fish ]; and . /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/sls.fish
+[ -f {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/sls.fish ]; and . {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/sls.fish
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/slss.fish ]; and . /home/matteo/.config/yarn/global/node_modules/tabtab/.completions/slss.fish
+[ -f {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/slss.fish ]; and . {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/slss.fish
 
+eval (starship init fish)
+source ~/.asdf/asdf.fish
+eval (sdkman export fish)

@@ -1,1 +1,4 @@
-cd.command = "exa"
+data {
+    drone_server = {{ (index (bitwarden "item" "111ad7b3-99de-48ce-a602-abd0007c8b08").login.uris 0).uri | quote }}
+    drone_token = {{ (bitwarden "item" "111ad7b3-99de-48ce-a602-abd0007c8b08").login.password | quote }}
+}
