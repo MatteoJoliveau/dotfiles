@@ -8,7 +8,7 @@ set -x GOBIN $GOPATH/bin
 set -x BROWSER firefox-developer-edition
 set -x CC /bin/clang
 set -x CXX /bin/clang++
-set -x fish_user_paths (yarn global bin) $HOME/.pub-cache/bin $HOME/.cargo/bin $GOBIN
+set -x fish_user_paths (yarn global bin) $HOME/.pub-cache/bin $HOME/.cargo/bin $GOBIN $HOME/.local/bin
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x DRONE_SERVER {{ .drone_server | quote }}
 set -x DRONE_TOKEN {{ .drone_token | quote }}
