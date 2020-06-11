@@ -119,7 +119,7 @@ myManageHook = composeAll
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 myLayout = avoidStruts (
-    mySpacing 5 $
+--    mySpacing 5 $
     resizableTall |||
     threeColMid |||
     Mirror resizableTall |||
