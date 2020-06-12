@@ -11,7 +11,7 @@ PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
 xsetroot -cursor_name left_ptr &
 xrdb -merge ~/.Xdefaults &
 xmodmap ~/.xmodmap
-setxkbmap -option "ctrl:nocaps" &
+setxkbmap -variant altgr-intl -option ctrl:nocaps
 
 # Configure NTP
 timedatectl set-ntp true
