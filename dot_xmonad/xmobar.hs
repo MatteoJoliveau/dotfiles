@@ -21,7 +21,7 @@ Config {
         , Run Date "%a %b %_d %H:%M" "date" 10
         , Run Wireless "wlp59s0" ["-a","l","-t","WiFi: <essid>"] 10
         , Run DynNetwork ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10
-        , Run Com "getMasterVolume" [] "volumelevel" 10
+        , Run Com "pamixer" ["--get-volume-human"] "volumelevel" 10
         , Run Battery ["-t", "<acstatus>: <left>%", "--", "-O", "AC", "-o", "Bat", "-h", "green", "-l", "red"] 10
         , Run StdinReader
     ],
