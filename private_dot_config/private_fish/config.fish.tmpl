@@ -1,3 +1,5 @@
+source ~/.asdf/asdf.fish
+
 set -x GPG_TTY (tty)
 set -x _JAVA_AWT_WM_NONREPARENTING 1
 set -x QT_QPA_PLATFORM "xcb"
@@ -56,5 +58,4 @@ alias cm="chezmoi"
 [ -f {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/slss.fish ]; and . {{ .chezmoi.homedir }}/.config/yarn/global/node_modules/tabtab/.completions/slss.fish
 
 eval (starship init fish)
-source ~/.asdf/asdf.fish
 eval (sdk export fish)
